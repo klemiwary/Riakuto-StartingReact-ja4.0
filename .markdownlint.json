@@ -1,0 +1,11 @@
+{
+  "default": true,
+  "commands-show-output": false,
+  "fenced-code-language": false,
+  "first-line-heading": false,
+  "heading-increment": false,
+  "heading-style": "atx",
+  "line-length": false,
+  "no-bare-urls": false,
+  "no-inline-html": false
+}
