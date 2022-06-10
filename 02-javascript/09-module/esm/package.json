@@ -1,0 +1,11 @@
+{
+  "name": "esm-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Yukina Shibasaki",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
