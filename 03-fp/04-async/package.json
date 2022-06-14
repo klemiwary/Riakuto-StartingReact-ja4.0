@@ -1,0 +1,11 @@
+{
+  "name": "07-async",
+  "version": "1.0.0",
+  "main": "get-user-then.js",
+  "author": "Yukina Shibasaki",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.2.6"
+  }
+}
