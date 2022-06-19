@@ -4,6 +4,6 @@ const permissions = {
   x: 0b001,
 };
 
-type PermsChar = keyof typeof permissions; // 'r' | 'w' | 'x'
-const readable: PermsChar = 'r';
-// const writable: PermsChar = 'z';  /* compile error */
+type PermChar = keyof typeof permissions;   // 'r' | 'w' | 'x'
+const readable: PermChar = 'r';
+// const writable: PermChar = 'z';

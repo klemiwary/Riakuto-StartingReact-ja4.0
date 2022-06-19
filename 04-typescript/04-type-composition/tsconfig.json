@@ -3,9 +3,7 @@
     "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
-    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
     "skipLibCheck": true
   }
 }

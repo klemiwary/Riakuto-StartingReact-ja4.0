@@ -1,10 +1,10 @@
-type A = {
+interface A {
   foo: number;
   bar?: string;
-};
-type B = { foo: string };
-type C = { bar: string };
-type D = { baz: boolean };
+}
+interface B { foo: string; }
+interface C { bar: string; }
+interface D { baz: boolean; }
 
 type AorB = A | B;
 type AorC = A | C;

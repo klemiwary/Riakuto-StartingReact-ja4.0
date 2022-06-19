@@ -2,9 +2,9 @@ class Brooch {
   pentagram = 'Silver Crystal';
 }
 
-type Compact = {
+interface Compact {
   silverCrystal: boolean;
-};
+}
 
 class CosmicCompact implements Compact {
   silverCrystal = true;
@@ -16,10 +16,13 @@ class CrisisCompact implements Compact {
   moonChalice = true;
 }
 
-function transform(): void;
-function transform(item: Brooch): void;
-function transform(item: Compact): void;
-function transform(item?: Brooch | Compact): void {
+interface Transform {
+  (): void;
+  (item: Brooch): void;
+  (item: Compact): void;
+}
+
+const transform: Transform = (item?) => {
   if (item instanceof Brooch) {
     console.log('Moon crystal power💎, make up!!');
   } else if (item instanceof CosmicCompact) {
@@ -31,7 +34,7 @@ function transform(item?: Brooch | Compact): void {
   } else {
     console.log('Item is fake...😖');
   }
-}
+};
 
 transform();
 transform(new Brooch());

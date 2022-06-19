@@ -5,4 +5,4 @@ const permissions = {
 } as const;
 
 type ValueOf<T> = T[keyof T];
-type PermsNum = ValueOf<typeof permissions>;  // 1 | 2 | 4
+type PermNum = ValueOf<typeof permissions>;   // 1 | 2 | 4

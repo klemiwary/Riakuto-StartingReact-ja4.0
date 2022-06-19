@@ -1,10 +1,10 @@
 class Brooch {
-  pentagram = 'Silver Crystal';
+  pentagram = "Silver Crystal";
 }
 
-type Compact = {
+interface Compact {
   silverCrystal: boolean;
-};
+}
 
 class CosmicCompact implements Compact {
   silverCrystal = true;
@@ -16,25 +16,22 @@ class CrisisCompact implements Compact {
   moonChalice = true;
 }
 
-type Transform = {
-  (): void;
-  (item: Brooch): void;
-  (item: Compact): void;
-};
-
-const transform: Transform = (item?: Brooch | Compact): void => {
+function transform(): void;
+function transform(item: Brooch): void;
+function transform(item: Compact): void;
+function transform(item?: Brooch | Compact): void {
   if (item instanceof Brooch) {
-    console.log('Moon crystal power💎, make up!!');
+    console.log("Moon crystal power💎, make up!!");
   } else if (item instanceof CosmicCompact) {
-    console.log('Moon cosmic power💖, make up!!!');
+    console.log("Moon cosmic power💖, make up!!!");
   } else if (item instanceof CrisisCompact) {
-    console.log('Moon crisis🏆, make up!');
+    console.log("Moon crisis🏆, make up!");
   } else if (!item) {
-    console.log('Moon prisim power🌙, make up!');
+    console.log("Moon prisim power🌙, make up!");
   } else {
-    console.log('Item is fake...😖');
+    console.log("Item is fake...😖");
   }
-};
+}
 
 transform();
 transform(new Brooch());

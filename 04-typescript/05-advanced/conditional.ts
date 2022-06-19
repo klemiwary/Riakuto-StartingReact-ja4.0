@@ -1,7 +1,7 @@
-type User = { id: unknown };
+interface User { id: unknown }
 type NewUser = User & { id: string };
 type OldUser = User & { id: number };
-type Book = { isbn: string };
+interface Book { isbn: string }
 
 type IdOf<T> = T extends User ? T['id'] : never;
 

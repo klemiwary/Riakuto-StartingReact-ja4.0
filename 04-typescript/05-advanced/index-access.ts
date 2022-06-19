@@ -4,5 +4,5 @@ const permissions = {
   x: 0b001 as const,
 };
 
-type PermsChar = keyof typeof permissions;
-type PermsNum = typeof permissions[PermsChar];
+type PermChar = keyof typeof permissions;
+type PermNum = typeof permissions[PermChar];

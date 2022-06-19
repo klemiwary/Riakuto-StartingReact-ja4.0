@@ -4,8 +4,8 @@ type AllSelect = `SELECT * FROM ${Table}`;
 type LimitSelect = `${AllSelect} LIMIT ${number}`;
 
 const createQuery = (table: Table, limit?: number): AllSelect | LimitSelect =>
-  limit ? `SELECT * FROM ${table} LIMIT ${limit}` as const
-  : `SELECT * FROM ${table}` as const;
+  limit ? `SELECT * FROM ${table} LIMIT ${limit}`
+  : `SELECT * FROM ${table}`;
 
 const query = createQuery('users', 20);
 console.log(query);
