@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
     "skipLibCheck": true
   }
 }

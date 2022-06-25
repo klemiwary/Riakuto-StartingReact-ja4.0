@@ -1,10 +1,10 @@
-import type { Resident } from './resident';
+import type { Resident } from "./resident";
 
-// const resident = new Resident();  /* compile error */
+// const resident = new Resident()
 const patty: Resident = {
-  name: 'Patty Rabbit',
+  name: "Patty Rabbit",
   age: 8,
-  species: 'rabbit',
+  species: "rabbit",
 };
 
 console.log(patty);

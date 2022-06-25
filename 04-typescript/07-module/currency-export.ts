@@ -6,14 +6,14 @@ const rate: { [unit: string]: number } = {
 };
 
 type Unit = keyof typeof rate;
-type Currency = {
+interface Currency {
   unit: Unit;
   amount: number;
-};
+}
 
 const Currency = {
   exchange: (currency: Currency, unit: Unit): Currency => {
-    const amount = currency.amount / rate[currency.unit] * rate[unit];
+    const amount = (currency.amount / rate[currency.unit]) * rate[unit];
 
     return { unit, amount };
   },

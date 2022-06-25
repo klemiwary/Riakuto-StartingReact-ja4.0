@@ -5,10 +5,10 @@ class Bar extends Base { bar = () => { console.log('bar'); } }
 const doDivide = (arg: Foo | Bar) => {
   if (arg instanceof Foo) {
     arg.foo();
-//  arg.bar();  /* compile error */
+//  arg.bar();
   } else {
     arg.bar();
-//  arg.foo();  /* compile error */
+//  arg.foo();
   }
 
   console.log(arg.common);

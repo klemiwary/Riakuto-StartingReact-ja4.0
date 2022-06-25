@@ -12,14 +12,15 @@ export class Err<T, E extends Error> {
   isErr = (): this is Err<T, E> => true;
 }
 
-export const withResult = <T, A extends any[], E extends Error>(
-  fn: (...args: A) => Promise<T>,
-) => async (...args: A): Promise<Result<T, E>> => {
-  try {
-    return new Ok(await fn(...args));
-  } catch (error) {
-    if (error instanceof Error) {
-      return new Err(error as E);
+export const withResult =
+  <T, A extends any[], E extends Error>(fn: (...args: A) => Promise<T>) =>
+  async (...args: A): Promise<Result<T, E>> => {
+    try {
+      return new Ok(await fn(...args));
+    } catch (error) {
+      if (error instanceof Error) {
+        return new Err(error as E);
+      }
+      throw new Error("Invalid type exception catched in Result");
     }
-  }
-};
+  };
