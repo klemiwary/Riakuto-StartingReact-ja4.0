@@ -7,6 +7,7 @@
     "dbaeumer.vscode-eslint",
     "donjayamanne.githistory",
     "esbenp.prettier-vscode",
+    "formulahendry/vscode-auto-rename-tag",
     "MariusAlchimavicius.json-to-ts",
     "MS-CEINTL.vscode-language-pack-ja",
     "oderwat.indent-rainbow",
