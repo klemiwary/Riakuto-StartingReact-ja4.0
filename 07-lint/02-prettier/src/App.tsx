@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { FC, useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 const title = import.meta.env.VITE_APP_TITLE;
 console.dir(import.meta.env);
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: FC = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -23,7 +23,7 @@ function App() {
         </p>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
