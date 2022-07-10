@@ -86,7 +86,7 @@
             "position": "after"
           },
           {
-            "pattern": "./**.module.{css,scss,sass}",
+            "pattern": "./**.module.css",
             "group": "index",
             "position": "after"
           }
@@ -105,6 +105,17 @@
       "rules": {
         "react/prop-types": "off"
       }
+    },
+    {
+      "files": [
+        "src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+        "src/**/*.{test,spec}.{js,jsx,ts,tsx}"
+      ],
+      "env": {
+        "jest/globals": true
+      },
+      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
+      "plugins": ["jest"]
     }
   ],
   "settings": {
