@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2022": true
+    "es2021": true
   },
   "extends": [
     "eslint:recommended",
@@ -77,12 +77,17 @@
         ],
         "pathGroups": [
           {
-            "pattern": "{react, react-dom**}",
-            "group": "external",
+            "pattern": "{react,react-dom/**}",
+            "group": "builtin",
             "position": "before"
           },
           {
-            "pattern": "**/**.(css|scss|sass|less)",
+            "pattern": "{[A-Z]*,**/[A-Z]*}",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "./**.module.css",
             "group": "index",
             "position": "after"
           }

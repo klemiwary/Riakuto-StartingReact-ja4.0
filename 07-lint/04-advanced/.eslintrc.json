@@ -39,6 +39,8 @@
         "next": "return"
       }
     ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
@@ -86,7 +88,7 @@
             "position": "after"
           },
           {
-            "pattern": "./**.module.css",
+            "pattern": "./*.{css,scss,sass,less}",
             "group": "index",
             "position": "after"
           }
@@ -105,17 +107,6 @@
       "rules": {
         "react/prop-types": "off"
       }
-    },
-    {
-      "files": [
-        "src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-        "src/**/*.{test,spec}.{js,jsx,ts,tsx}"
-      ],
-      "env": {
-        "jest/globals": true
-      },
-      "extends": ["plugin:jest/recommended", "plugin:jest/style"],
-      "plugins": ["jest"]
     }
   ],
   "settings": {

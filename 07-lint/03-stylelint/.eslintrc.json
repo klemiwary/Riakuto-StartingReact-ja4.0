@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2022": true
+    "es2021": true
   },
   "extends": [
     "eslint:recommended",
@@ -39,6 +39,8 @@
         "next": "return"
       }
     ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["error"],
     "@typescript-eslint/no-unused-vars": [
       "error",
       {

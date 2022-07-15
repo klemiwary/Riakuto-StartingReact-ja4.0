@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import logo from './logo.svg';
+import reactLogo from './assets/react.svg';
 import './App.css';
 
 const title = import.meta.env.VITE_APP_TITLE;
@@ -10,18 +10,26 @@ const App: FC = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{title}</p>
+      <div>
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>{title}</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
+          Edit <code>src/App.tsx</code> and save to test HMR
         </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-      </header>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
     </div>
   );
 };

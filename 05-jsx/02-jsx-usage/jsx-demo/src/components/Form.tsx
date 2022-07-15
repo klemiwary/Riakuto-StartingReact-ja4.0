@@ -10,7 +10,7 @@ const options = {
 
 type Props = { selected?: keyof typeof options };
 
-const Summary: React.FC<Props> = ({ selected }) => (
+const Form: React.FC<Props> = ({ selected }) => (
   <form>
     <div className="form-item">
       <label htmlFor="favChar">好きなキャラクターは？</label>
@@ -29,4 +29,4 @@ const Summary: React.FC<Props> = ({ selected }) => (
   </form>
 );
 
-export default Summary;
+export default Form;
