@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  padding: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.container header {
+  margin-bottom: 2rem;
+}
+
+.container h1 {
+  font-size: 32px;
+}
+
+.container h2 {
+  margin-bottom: 0.4rem;
+  font-size: 24px;
+}

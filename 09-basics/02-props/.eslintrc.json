@@ -56,7 +56,6 @@
     ],
     "import/extensions": [
       "error",
-      "ignorePackages",
       {
         "ignorePackages": true,
         "pattern": {
