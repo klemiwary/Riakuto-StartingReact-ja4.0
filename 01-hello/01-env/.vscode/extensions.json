@@ -4,12 +4,12 @@
 
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
+    "christian-kohler.path-intellisense",
     "dbaeumer.vscode-eslint",
     "donjayamanne.githistory",
     "esbenp.prettier-vscode",
     "formulahendry/vscode-auto-rename-tag",
     "MariusAlchimavicius.json-to-ts",
-    "MS-CEINTL.vscode-language-pack-ja",
     "oderwat.indent-rainbow",
     "stylelint.vscode-stylelint",
     "VisualStudioExptTeam.vscodeintellicode",

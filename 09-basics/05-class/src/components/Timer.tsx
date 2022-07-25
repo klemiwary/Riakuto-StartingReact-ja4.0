@@ -35,8 +35,8 @@ class Timer extends Component<Props, State> {
   }
 
   render = (): JSX.Element => (
-    <Box p={3} w="xs" borderWidth="1px" borderRadius="lg" boxShadow="base">
-      <Stat mb={1}>
+    <Box p={5} w="xs" borderWidth="1px" borderRadius="lg" boxShadow="base">
+      <Stat mb={2}>
         <StatLabel fontSize={18}>Count</StatLabel>
         <StatNumber fontSize={42}>{this.state.timeLeft}</StatNumber>
       </Stat>

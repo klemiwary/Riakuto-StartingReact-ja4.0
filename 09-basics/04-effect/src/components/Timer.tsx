@@ -8,8 +8,8 @@ const MAX_COUNT = 60;
 
 const Timer: FC<Props> = ({ maxCount = MAX_COUNT }) => {
   const [timeLeft, setTimeLeft] = useState(maxCount);
-  const reset = (): void => setTimeLeft(maxCount);
-  const tick = (): void => setTimeLeft((t) => t - 1);
+  const tick = () => setTimeLeft((t) => t - 1);
+  const reset = () => setTimeLeft(maxCount);
 
   useEffect(() => {
     const timerId = setInterval(tick, 1000);
@@ -22,8 +22,8 @@ const Timer: FC<Props> = ({ maxCount = MAX_COUNT }) => {
   });
 
   return (
-    <Box p={3} w="sm" borderWidth="1px" borderRadius="lg" boxShadow="base">
-      <Stat mb={1}>
+    <Box p={5} w="sm" borderWidth="1px" borderRadius="lg" boxShadow="base">
+      <Stat mb={2}>
         <StatLabel fontSize={18}>Count</StatLabel>
         <StatNumber fontSize={42}>{timeLeft}</StatNumber>
       </Stat>

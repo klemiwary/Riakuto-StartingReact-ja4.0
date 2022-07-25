@@ -1,0 +1,10 @@
+#root {
+  max-width: 1280px;
+  padding: 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 2rem;
+}
