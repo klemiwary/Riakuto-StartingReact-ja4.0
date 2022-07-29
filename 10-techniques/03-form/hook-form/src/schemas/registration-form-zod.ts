@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { genderCode } from './constants';
 
-const regFormSchema = z.object({
+export const regFormSchema = z.object({
   username: z.string().min(1, { message: '必須項目です' }),
   zipcode: z
     .optional(
@@ -17,7 +17,4 @@ const regFormSchema = z.object({
   isAgreed: z.boolean().refine((val) => val, { message: '同意が必要です' }),
 });
 
-type RegFormSchema = z.infer<typeof regFormSchema>;
-
-export { regFormSchema };
-export type { RegFormSchema };
+export type RegFormSchema = z.infer<typeof regFormSchema>;

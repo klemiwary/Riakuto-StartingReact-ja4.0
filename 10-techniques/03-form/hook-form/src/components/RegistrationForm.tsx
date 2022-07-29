@@ -26,7 +26,7 @@ const RegistrationForm: FC = () => {
       isAgreed: false,
     },
   });
-  const onSubmit: SubmitHandler<FormData> = (data) => console.dir(data);
+  const onSubmit: SubmitHandler<FormData> = (data) => console.log(data);
   const onReset = (e: SyntheticEvent) => {
     e.stopPropagation();
     reset();

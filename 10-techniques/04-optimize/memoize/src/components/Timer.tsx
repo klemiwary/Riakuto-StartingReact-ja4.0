@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { RepeatClockIcon as ResetIcon } from '@chakra-ui/icons';
 import { Box, Button, Stat, StatLabel, StatNumber } from '@chakra-ui/react';
-import { useTimer } from 'hooks/use-timer';
+import { useTimer } from 'hooks/useTimer';
 
 type Props = { maxCount?: number };
 const MAX_COUNT = 60;

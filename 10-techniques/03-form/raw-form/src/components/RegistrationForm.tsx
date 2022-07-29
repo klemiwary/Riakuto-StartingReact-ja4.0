@@ -38,7 +38,7 @@ const RegistrationForm: FC = () => {
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-    console.dir(formData);
+    console.log(formData);
   };
 
   return (

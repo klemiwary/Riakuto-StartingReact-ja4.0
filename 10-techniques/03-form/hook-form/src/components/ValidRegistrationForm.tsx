@@ -31,7 +31,7 @@ const RegistrationForm: FC = () => {
     resolver: yupResolver(regFormSchema),
     // resolver: zodResolver(regFormSchema),
   });
-  const onSubmit: SubmitHandler<RegFormSchema> = (data) => console.dir(data);
+  const onSubmit: SubmitHandler<RegFormSchema> = (data) => console.log(data);
   const onReset = (e: SyntheticEvent) => {
     e.stopPropagation();
     reset();

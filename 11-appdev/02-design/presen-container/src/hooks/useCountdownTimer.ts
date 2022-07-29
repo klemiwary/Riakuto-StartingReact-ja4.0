@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const useTimer = (maxCount: number): [number, () => void] => {
+export const useCountdownTimer = (maxCount: number): [number, () => void] => {
   const [timeLeft, setTimeLeft] = useState(maxCount);
   const tick = () => setTimeLeft((t) => t - 1);
   const reset = () => setTimeLeft(maxCount);
@@ -17,5 +17,3 @@ const useTimer = (maxCount: number): [number, () => void] => {
 
   return [timeLeft, reset];
 };
-
-export { useTimer };
