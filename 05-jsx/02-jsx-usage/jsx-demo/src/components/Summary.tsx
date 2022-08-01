@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import './Summary.css';
 
 type Props = { title: string; folded?: boolean } & PropsWithChildren;
