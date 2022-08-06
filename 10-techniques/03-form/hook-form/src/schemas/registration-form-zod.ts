@@ -12,7 +12,7 @@ export const regFormSchema = z.object({
     )
     .or(z.literal('')),
   gender: z.optional(
-    z.enum(Object.keys(genderCode) as [string, ...string[]]).or(z.literal(''))
+    z.enum(Object.keys(genderCode) as never).or(z.literal(''))
   ),
   isAgreed: z.boolean().refine((val) => val, { message: '同意が必要です' }),
 });

@@ -13,8 +13,8 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 // import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { genderCode, regFormSchema } from 'schemas';
 import type { SubmitHandler } from 'react-hook-form';
+import { genderCode, regFormSchema } from 'schemas';
 import type { RegFormSchema } from 'schemas';
 
 const RegistrationForm: FC = () => {

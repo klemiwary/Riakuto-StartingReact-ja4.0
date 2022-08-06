@@ -18,7 +18,7 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
     setSearchParams(`loading=${loading}`);
   };
 
-  if (SCHOOL_CODE.includes(schoolId as typeof SCHOOL_CODE[number])) {
+  if (SCHOOL_CODE.includes(schoolId as never)) {
     // if (SCHOOL_CODE.includes(schoolId as 'shohoku')) {
     const players = playerData.filter((player) => player.schoolId === schoolId);
     const school = schoolData.find((school) => school.id === schoolId);

@@ -24,14 +24,14 @@ const counterSlice = createSlice({
   },
 });
 
-type CounterReturn = {
+type ReturnValue = {
   count: number;
   decrement: () => void;
   increment: () => void;
   add: (amount: number) => void;
 };
 
-export const useCounter = (): CounterReturn => {
+export const useCounter = (): ReturnValue => {
   const initialCount = 0;
   const [state, dispatch] = useReducer(
     counterSlice.reducer,

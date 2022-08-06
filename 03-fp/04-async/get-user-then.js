@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
-const getUser = (userId) =>
-  fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+const getUser = (userID) =>
+  fetch(`https://jsonplaceholder.typicode.com/users/${userID}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`${response.status} Error`);
