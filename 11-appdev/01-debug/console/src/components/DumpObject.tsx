@@ -1,4 +1,4 @@
-import type { FC, SyntheticEvent } from 'react';
+import type { FC, ChangeEvent, SyntheticEvent } from 'react';
 import { useState } from 'react';
 import { Box, Button, Heading, Select } from '@chakra-ui/react';
 import { todo, reactElem, domElem } from 'data/object';
@@ -22,8 +22,7 @@ const DumpObject: FC = () => {
     format: undefined,
   });
 
-  const handleChange = (event: SyntheticEvent) => {
-    const target = event.target as HTMLInputElement;
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name } = target;
     const value = target.value;
     setFormData((state) => ({ ...state, [name]: value }));

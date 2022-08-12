@@ -1,4 +1,4 @@
-import type { FC, SyntheticEvent } from 'react';
+import type { FC, ChangeEvent, SyntheticEvent } from 'react';
 import { useState } from 'react';
 import {
   Box,
@@ -29,8 +29,7 @@ const RegistrationForm: FC = () => {
     isAgreed: false,
   });
 
-  const handleChange = (event: SyntheticEvent) => {
-    const target = event.target as HTMLInputElement;
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     setFormData((state) => ({ ...state, [name]: value }));

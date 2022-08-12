@@ -1,4 +1,4 @@
-import type { FC, SyntheticEvent } from 'react';
+import type { FC, ChangeEvent, SyntheticEvent } from 'react';
 import { useState } from 'react';
 import { Box, Button, FormLabel, Heading, Input } from '@chakra-ui/react';
 
@@ -13,8 +13,7 @@ const DumpLog: FC = () => {
     count: '',
   });
 
-  const handleChange = (event: SyntheticEvent) => {
-    const target = event.target as HTMLInputElement;
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name } = target;
     const value = Number(target.value) || target.value;
     setFormData((state) => ({ ...state, [name]: value }));

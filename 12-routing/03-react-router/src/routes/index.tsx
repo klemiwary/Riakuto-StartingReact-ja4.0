@@ -17,11 +17,11 @@ const IndexRoutes: FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
       <Route path="characters" element={<CharactersFrame />}>
         <Route path="" element={<AllPlayers my={12} />} />
         <Route path=":schoolId" element={<PlayerListBySchool my={12} />} />
       </Route>
+      <Route path="/" element={<Home />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
