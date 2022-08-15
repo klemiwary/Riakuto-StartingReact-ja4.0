@@ -4,9 +4,9 @@ function double(n) {
 }
 
 // 関数式による定義
-const duplicate = function (n) {
+const dbl = function (n) {
   return n * 2;
 };
 
 console.log(double(10));
-console.log(duplicate(10));
+console.log(dbl(10));
