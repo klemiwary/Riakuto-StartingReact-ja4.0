@@ -1,6 +1,6 @@
 import * as yup from 'yup';
-import { genderCode } from './constants';
 import type { InferType } from 'yup';
+import { genderCode } from './constants';
 
 export const regFormSchema = yup.object({
   username: yup.string().required('必須項目です'),

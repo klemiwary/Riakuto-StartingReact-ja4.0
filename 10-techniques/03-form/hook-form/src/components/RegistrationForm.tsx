@@ -9,8 +9,8 @@ import {
   Select,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
-import { genderCode } from 'schemas';
 import type { SubmitHandler } from 'react-hook-form';
+import { genderCode } from 'schemas';
 
 interface FormData {
   username: string;

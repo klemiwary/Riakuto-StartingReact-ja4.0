@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Heading } from '@chakra-ui/react';
-import type { Character } from 'components/CharacterList';
 import CharacterList from 'components/CharacterList';
+import type { Character } from 'components/CharacterList';
 import './App.css';
 
 const App: FC = () => {

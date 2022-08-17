@@ -14,11 +14,7 @@
     "plugin:react-hooks/recommended",
     "prettier"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
     "ecmaVersion": "latest",
     "tsconfigRootDir": ".",
     "project": ["./tsconfig.json"],

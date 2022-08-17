@@ -29,15 +29,20 @@ const RegistrationForm: FC = () => {
     isAgreed: false,
   });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    setFormData((state) => ({ ...state, [name]: value }));
-  };
-
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     console.log(formData);
+  };
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name } = event.target;
+    const value =
+      event.target.type === 'checkbox'
+        ? (event.target as HTMLInputElement).checked
+        : event.target.value;
+    setFormData((state) => ({ ...state, [name]: value }));
   };
 
   return (
