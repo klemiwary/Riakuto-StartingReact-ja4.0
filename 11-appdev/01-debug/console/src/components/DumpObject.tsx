@@ -22,9 +22,10 @@ const DumpObject: FC = () => {
     format: undefined,
   });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name } = target;
-    const value = target.value;
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
     setFormData((state) => ({ ...state, [name]: value }));
   };
 
@@ -37,7 +38,7 @@ const DumpObject: FC = () => {
         data = domElem as HTMLElement;
         break;
       case 'react':
-        data = reactElem ;
+        data = reactElem;
         break;
       default:
         data = todo;

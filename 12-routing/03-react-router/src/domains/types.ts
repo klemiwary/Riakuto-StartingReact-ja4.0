@@ -9,7 +9,7 @@ export interface School {
 export interface Player {
   id: string;
   name: string;
-  schoolId: typeof SCHOOL_CODE[number];
+  schoolID: typeof SCHOOL_CODE[number];
   grade: number;
   height?: number;
 }

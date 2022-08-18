@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 import PlayerList from 'components/organisms/PlayerList';
 
 const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
-  const { schoolId = '' } = useParams();
+  const { schoolID = '' } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const isLoading = Boolean(searchParams.get('loading'));
 
@@ -18,10 +18,10 @@ const PlayerListBySchool: FC<{ my?: number | string }> = ({ my = 0 }) => {
     setSearchParams(`loading=${loading}`);
   };
 
-  if (SCHOOL_CODE.includes(schoolId as never)) {
-    // if (SCHOOL_CODE.includes(schoolId as 'shohoku')) {
-    const players = playerData.filter((player) => player.schoolId === schoolId);
-    const school = schoolData.find((school) => school.id === schoolId);
+  if (SCHOOL_CODE.includes(schoolID as never)) {
+    // if (SCHOOL_CODE.includes(schoolID as 'shohoku')) {
+    const players = playerData.filter((player) => player.schoolID === schoolID);
+    const school = schoolData.find((school) => school.id === schoolID);
 
     return (
       <Box my={my} w="2xl">

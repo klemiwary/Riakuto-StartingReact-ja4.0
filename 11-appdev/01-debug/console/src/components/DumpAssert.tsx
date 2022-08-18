@@ -22,9 +22,10 @@ const DumpAssert: FC = () => {
     assertion: undefined,
   });
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name } = target;
-    const value = target.value;
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = event.target;
     setFormData((state) => ({ ...state, [name]: value }));
   };
 

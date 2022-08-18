@@ -12,7 +12,7 @@ const useGetMembers = (orgCode: string): ReturnValue => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const load = async (): Promise<void> => {
+    const load = async () => {
       setIsLoading(true);
 
       try {

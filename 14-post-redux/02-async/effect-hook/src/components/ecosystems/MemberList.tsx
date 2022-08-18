@@ -14,7 +14,7 @@ const MemberList: FC<Props> = ({ orgCode }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const load = async (): Promise<void> => {
+    const load = async () => {
       setIsLoading(true);
 
       try {

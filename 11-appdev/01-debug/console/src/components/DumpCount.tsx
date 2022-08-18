@@ -14,8 +14,8 @@ const DumpLog: FC = () => {
   });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name } = target;
-    const value = Number(target.value) || target.value;
+    const { name } = event.target;
+    const value = Number(event.target.value) || event.target.value;
     setFormData((state) => ({ ...state, [name]: value }));
   };
 
