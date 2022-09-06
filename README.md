@@ -28,9 +28,9 @@
 
 それぞれ 50 ページほど無料でお読みいただけるサンプルを用意しています。ご自由にご覧ください。
 
-- [Ⅰ. 言語・環境編（PDF / 58 ページ）](./samples/riakuto31pt1-sample.pdf)
-- [Ⅱ. React 基礎編（PDF / 50 ページ）](./samples/riakuto31pt2-sample.pdf)
-- [Ⅲ. React 応用編（PDF / 56 ページ）](./samples/riakuto31pt3-sample.pdf)
+- [① 言語・環境編（PDF / 59 ページ）](./samples/riakuto4pt1-sample.pdf)
+- [② React 基礎編（PDF / 47 ページ）](./samples/riakuto4pt2-sample.pdf)
+- [③ React 応用編（PDF / 53 ページ）](./samples/riakuto4pt3-sample.pdf)
 
 <br />
 
