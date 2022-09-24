@@ -2,7 +2,7 @@
 
 # 『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 4 版』の正誤表・更新情報
 
-最終更新日： 2022 年 9 月 22 日
+最終更新日： 2022 年 9 月 24 日
 
 ### ご注意点
 
@@ -63,6 +63,26 @@
 + $ asdf plugin add nodejs
   $ asdf install nodejs latest
   $ asdf global nodejs latest
+```
+
+- 2-3-1 / p.54
+
+```diff
+  ・Number型（数値型）
+  　…… 数値を扱うためのデータ型。他の多くの言語と異なり、整数も小数も同じ Number 型になる。扱うことができる最大値は
+- 253-1
++ 2^53-1
+  （9,007,199,254,740,991≒9千兆）。
+```
+
+- 2-4-3 / p.69 / リスト 16
+
+```diff
+- showNames('John', 'Jane', 'Johnny', 'Jenny', 'Julia');
+- showNames('Moon', 'Mercury', 'Mars', 'Jupiter', 'Venus');
+  // Moon
+  // Mercury
+  // [ 'Mars', 'Jupiter', 'Venus' ]
 ```
 
 - 2-9-2 / p.109
