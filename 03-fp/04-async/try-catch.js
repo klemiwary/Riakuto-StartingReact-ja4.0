@@ -3,7 +3,7 @@ const doIt = () => {
     const isSucceeded = Math.random() < 0.5;
 
     if (isSucceeded) {
-      console.log('Fullfilled');
+      console.log('Fulfilled');
     } else {
       throw 1234;
     }

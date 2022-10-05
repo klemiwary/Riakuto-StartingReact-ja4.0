@@ -14,7 +14,7 @@ class Bird {
   };
 
   static explain = () => {
-    console.log(`これは鳥のクラスです`);
+    console.log('これは鳥のクラスです');
   };
 }
 

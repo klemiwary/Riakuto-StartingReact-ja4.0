@@ -1,7 +1,7 @@
 console.log(fn());
 
 function fn() {
-  return `foo`;
+  return 'foo';
 }
 
 function fn() {
