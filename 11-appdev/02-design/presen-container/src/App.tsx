@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Heading } from '@chakra-ui/react';
-import Timer from 'components/Timer';
+import Timer from 'components/CountdownTimer';
 import './App.css';
 
 const App: FC = () => (

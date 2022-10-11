@@ -1,17 +1,17 @@
 <!-- markdownlint-disable MD010 MD029 MD032 -->
 
-# 『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 4 版』の正誤表・更新情報
+# 『りあクト！ TypeScript で始めるつらくない React 開発 &nbsp;第 4 版』第 1 刷の正誤表・更新情報
 
-最終更新日： 2022 年 10 月 5 日
+最終更新日： 2022 年 11 月 1 日
 
 ### ご注意点
 
 - 正誤表の内容は随時アップデートされます。
 - 記述しているページ番号は、紙の第 3 刷に対応していますが、電子版では内容の更新によりお持ちのバージョンによって前後することがあります。
 - 電子版については随時、修正やアップデートが反映された新しいバージョンが配信されます。購入先のサイトをご確認ください。なお現時点での最新版は以下の通りです。
-  - 【① 言語・環境編】バージョン 1.0.2（2022-09-22）
-  - 【② React 基礎編】バージョン 1.0.1（2022-09-10）
-  - 【③ React 応用編】バージョン 1.0.1（2022-09-10）
+  - 【① 言語・環境編】バージョン 2.0.0（2022-11-01）
+  - 【② React 基礎編】バージョン 2.0.0（2022-11-01）
+  - 【③ React 応用編】バージョン 2.0.0（2022-11-01）
 
 ### 電子版のバージョニングについて
 
@@ -210,6 +210,58 @@
   この種の UI は処理中だということを待ってるユーザーへ伝えられるのに加えて、
 ```
 
+- 10-3-4 / p.57
+
+```diff
+  そこで React 18 では
++ あ
+  らかじめ任意の state 更新における緊急性をマークしておくことで、
+```
+
+- 12-2-1 / p.92 / 脚注  
+  （※以下、誤植ではなく React Router 公式ドキュメントの改修でのリンク切れによるもの）
+
+```diff
+- 80 https://reactrouter.com/docs/en/v6
++ 80 https://reactrouter.com/en/main
+```
+
+- 12-2-2 / p.94 / 脚注
+
+```diff
+- 81 「React Router | BrowserRouter」https://reactrouter.com/docs/en/v6/routers/browser-router
++ 81 「BrowserRouter | React Router」https://reactrouter.com/en/main/router-components/browser-router
+- 82 「React Router | HashRouter」https://reactrouter.com/docs/en/v6/routers/hash-router)
++ 82 「HashRouter | React Router」https://reactrouter.com/en/main/router-components/hash-router)
+- 83 「React Router | MemoryRouter」https://reactrouter.com/docs/en/v6/routers/memory-router)
++ 83 「MemoryRouter | React Router」https://reactrouter.com/en/main/router-components/memory-router)
+- 84 「React Router | NativeRouter」https://reactrouter.com/docs/en/v6/routers/native-router
++ 84 「NativeRouter | React Router」https://reactrouter.com/en/main/router-components/native-router
+- 85 「React Router | StaticRouter」https://reactrouter.com/docs/en/v6/routers/static-router)
++ 85 「StaticRouter | React Router」https://reactrouter.com/en/main/router-components/static-router)
+```
+
+- 12-2-2 / p.95 / 脚注
+
+```diff
+- 86 「React Router | Routes」https://reactrouter.com/docs/en/v6/components/routes
++ 86 「Routes | React Router」https://reactrouter.com/en/main/components/routes
+```
+
+- 12-2-2 / p.96 / 脚注
+
+```diff
+- 87 「React Router | Navigate」https://reactrouter.com/docs/en/v6/components/navigate
++ 87 「Navigate | React Router」https://reactrouter.com/en/main/components/navigate
+```
+
+- 12-2-2 / p.98 / 脚注
+
+```diff
+- 90 「React Router | NavLink」https://reactrouter.com/docs/en/v6/components/nav-link
++ 90 「NavLink | React Router」https://reactrouter.com/en/main/components/nav-link
+```
+
 - 14-2-2 / p.165
 
 ```diff
@@ -236,11 +288,33 @@
   が好きな人なんか本当にいるの？）
 ```
 
-- 14-4-3 / p.185 / 図 38
+- 14-4-3 / p.186 / 図 38
 
 ```diff
   Redux と他の状態管理ライブラリの DL 数比較
 - （2021 年 9 月現在）
 + （2022 年 9 月現在）
   ね。
+```
+
+- 15-1-1 / p.189 / 脚注
+
+```diff
+  182 「React v18.0 – React Blog」
++ https://ja.reactjs.org/blog/2022/03/29/react-v18.html
+```
+
+- 15-1-1 / p.212 / 脚注
+
+```diff
+- 216 https://github.com/klemiwary/Riakuto-StartingReact-ja4.0/tree/main/13-suspense/04-ux
++ 216 https://github.com/klemiwary/Riakuto-StartingReact-ja4.0/tree/main/15-concurrent/04-app/concurrent-ui
+```
+
+- エピローグ / p.226
+
+```diff
+  その後の React でのコンポーネントの作り方や Hooks によるロジックの書き方とか
+- か
+  がすんなり理解できました」
 ```
