@@ -9,7 +9,7 @@ type Props = {
   orgCode: string;
 };
 
-const Home: FC<Props> = ({ orgCode }) => {
+const CompanyMembers: FC<Props> = ({ orgCode }) => {
   const pageTitle = `${capitalize(orgCode) || '****'} の開発メンバー`;
 
   return (
@@ -26,4 +26,4 @@ const Home: FC<Props> = ({ orgCode }) => {
   );
 };
 
-export default Home;
+export default CompanyMembers;
