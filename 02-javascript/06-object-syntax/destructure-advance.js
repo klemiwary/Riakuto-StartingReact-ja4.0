@@ -12,7 +12,7 @@ const response = {
     },
     {
       id: 3,
-      name: 'Bobby Bear',
+      name: 'Bobby Kumanov',
       email: 'bobby@maple.town',
     },
   ],

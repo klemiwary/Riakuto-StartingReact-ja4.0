@@ -1,172 +1,145 @@
 # Windows でフロントエンドの開発環境を作る手順
 
-Windows に Node.js を直接インストールするのではなく、[WSL](https://docs.microsoft.com/ja-jp/windows/wsl/install-win10) で Ubuntu を入れてそこに必要な環境を作っていきます。
+Windows のネイティブ環境に Node.js を直接インストールするのではなく、[WSL](https://learn.microsoft.com/ja-jp/windows/wsl/about)（<u>W</u>indows <u>S</u>ubsystem for <u>L</u>inux）で Ubuntu を入れて、そこに必要な環境を構築していきます。その際、以下のソフトウェアを併せてインストールします。
 
-なお Windows 側にインストールするアプリはエディタとして Visual Studio Code、ターミナルとして Windows Terminal を使いますが、すでにインストールされている場合は手順を飛ばしてください。
+- **WinGet**（Windows 標準パッケージマネージャ）
+- **Windows Terminal**（ターミナル）
+- **asdf**（ランタイムのバージョンマネージャ）
+- **Visual Studio Code**（開発用エディタ）
 
-## 1. WSL のインストールとアップグレード
+OS 環境としては、Windows 11 および Windows 10 の 2020 年 5 月以降のアップデートを適用したバージョンを対象としています。Windows 10 をお使いの方は、最新の Windows Update を適用しておいてください。
 
-参考：[Windows Subsystem for Linux (WSL) を Windows 10 にインストールする](https://docs.microsoft.com/ja-jp/windows/wsl/install-win10)
+<br />
 
-### WSL のインストール
+## 1. WinGet が使えるかを確認
 
-- PowerShell を「管理者として実行」して開く
-- 以下のコマンドを実行して WSL を有効にする
+Microsoft が提供する、アプリケーションパッケージのコマンドライン管理ツール。本編における macOS 環境で使用している [Homebrew](https://brew.sh/ja/) と同じような機能を持つ。Windows 11 からは OS の標準パッケージマネージャとしてプリインストールされています。
 
-```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-```
+1. 自身の環境で使えるようになっているかどうかは、コマンドプロンプトまたは Windows Powershell から `winget↵` を実行することで確認できます
+2. コマンドが見つからなかった場合、Microsoft Store の「[アプリ インストーラー](https://apps.microsoft.com/detail/9nblggh4nns1?activetab=pivot%3Aoverviewtab&hl=ja-jp&gl=JP)」のページからインストールします
 
-### WSL2 へアップグレード
+## 2. Ubuntu のインストールと設定
 
-- 以下のコマンドを実行して仮想マシンの機能を有効にする
+_（参考：「[WSL を使用して Windows に Linux をインストールする方法 | Microsoft Learn](https://learn.microsoft.com/ja-jp/windows/wsl/install)」）_
 
-```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-```
-
-- いったんマシンを再起動する
-- [x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ（wsl_update_x64.msi）](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)をダウンロードして実行する
-- PowerShell を管理者権限で開いて以下のコマンドを実行し、WSL2 を規定のバージョンとして設定する
+1. コマンドプロンプトを「管理者として実行」で開き、以下のコマンドを実行する
 
 ```powershell
-wsl --set-default-version 2
+> wsl --install
 ```
 
-## 2. Linux ディストリビューションをインストールする
+2. インストールが成功すると Ubuntu が起動、そこで `Enter new UNIX username:` と入力を促されるので好きユーザー名を、`New password:` には任意のパスワードを設定する
 
-### Ubuntu のインストール
+<br />
 
-- Microsoft Store から [Ubuntu](https://www.microsoft.com/ja-jp/p/ubuntu/9nblggh4msv6) をインストールする
-- インストールした Ubuntu を起動。最初の起動時にユーザー名とパスワードを入力するよう促されるので、任意のものに設定する。ここで作成されたアカウントが管理者になる
-- そのままでは WSL 環境で作られたファイルにすべて実行権限が付与されてしまうため、設定を変更する。以下の内容のファイルを `/etc/wsl.conf` として作成する
+## 3. Windows Terminal のインストール
+
+コマンドラインから `npm` や `git` などを実行する場合、ターミナルとして最初から用意されているコマンドプロンプトや Powershell を直接使うのではなく Windows Terminal を別途インストールして使うことをおすすめします。理由としては以下のとおり。
+
+- 複数のタブとペイン
+  …… 同時に複数のターミナルを開いて作業できるため、コンパイル、サーバ起動、デバッグなど、複数のタスクを効率的に管理できる
+- 高いカスタマイズ性
+  …… テーマやフォント、キーバインドなど、開発者の好みに合わせて細かくカスタマイズ可能
+- 機能的なコマンド履歴
+  …… 使いやすい検索機能とフィルタリングにより、以前実行したコマンドを素早く見つけられる
+- 包括的な Unicode 対応および絵文字サポート
+- モダンで見やすい UI
+
+以下は Windows Terminal のインストールの手順。
+
+1. 管理者として開いたコマンドプロンプトから、次のコマンドを実行する  
+   （※ `winget` コマンドが実行できない場合、Microsoft Store を一度開いてからやり直す）
+
+```powershell
+> winget install Microsoft.WindowsTerminal
+```
+
+2. インストールした Windows Terminal を起動、タブの右横にある「⌄」を押して開いたプルダウンから「⚙ 設定」を選択。「スタートアップ」の「規定のプロファイル」を「Ubuntu」にして保存する
+
+<br />
+
+## 4. asdf のインストール
+
+_（参考：「[はじめよう | asdf](https://asdf-vm.com/ja-jp/guide/getting-started.html)」）_
+
+1. Windows Terminal の Ubuntu プロファイルで開いたタブウィンドウから、以下のコマンドを実行して APT のパッケージ情報およびインストール済みのパッケージを最新にする
 
 ```shell
-sudo vi /etc/wsl.conf
+$ sudo apt update
+$ sudo apt -y upgrade
 ```
 
-```conf
-[automount]
-options = "metadata,umask=22,fmask=11"
-```
-
-### 各種パッケージ
-
-- Ubuntu のウィンドウで以下のコマンドを実行して、APT とインストール済みのパッケージを最新にする。さらに Git をインストールしておく
+2. Git コマンドで最新版の asdf のリポジトリをダウンロードする。現在の最新のバージョンがいくつかは[リリースページ](https://github.com/asdf-vm/asdf/tags)で確認できる
 
 ```shell
-sudo apt update
-sudo apt -y upgrade
-sudo apt-get install -y git
+$ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
 ```
 
-- Bash 以外のシェルを使いたい場合は以下のようにする（ZSH の場合）
+3. インストーラを実行する
 
 ```shell
-sudo apt-get install -y zsh
-chsh -s /usr/bin/zsh
+$ . "$HOME/.asdf/asdf.sh"
+$ . "$HOME/.asdf/completions/asdf.bash"
 ```
 
-## 3. Windows Terminal をインストールする
-
-- Microsoft Store で [Windows Terminal](https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701) をインストール
-- Windows Terminal を起動、「設定」をクリックして設定ファイル `settings.json` を開く。以下のように編集して、デフォルトで WSL のタブが開きホームディレクトリで起動するに変更。なお各環境の GUID は同ファイル内の `"profiles" > "list"` 要素の `"guid"` に記述されている。
-
-```diff
-  {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-
--   "defaultProfile": "{Windows PowerShell の GUID}",
-+   "defaultProfile": "{Windows.Terminal.Wsl の GUID}",
-  ︙
-  "profiles":
-  {
-    "list":
-    [
-    ︙
-      {
-        "guid": "{Windows.Terminal.Wsl の GUID}",
-        "hidden": false,
-        "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl",
-+       "startingDirectory": "//wsl$/Ubuntu/home/ユーザー名"
-```
-
-## 4. Node.js のインストール
-
-- anyenv のソースを取得
+4. シェルを再起動する
 
 ```shell
-git clone https://github.com/anyenv/anyenv ~/.anyenv
+$ exec $SHELL -l
 ```
 
-- シェルに anyenv の設定を追加する（ZSH の場合）
+<br />
+
+## 5. Node.js のインストール
+
+- 本書「1-1-2. Node.js をインストールする」の 23 ページ以降の内容にしたがって、asdf を使って Node.js 環境を構築する
+
+<br />
+
+## 6. Visual Studio Code のインストールと設定
+
+_（参考：「[Windows Subsystem for Linux で VS Code の使用を開始する](https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-VSCode)」）_
+
+1. [公式サイトのダウンロードページ](https://code.visualstudio.com/download)から、 Visual Studio Code の Windows 用インストーラをダウンロードして実行する
+
+2. Visual Studio Code を起動し、左のアクティビティバーの「👤 Accounts」アイコンをクリック、 「Sign in to Sync Settings」`File > Prefenrence > Setting Sync` から GitHub アカウントまたは Microsoft アカウントでログインして設定の同期を有効にする
+
+3. VS Code で [WSL](https://marketplace.visualstudio.com/items?itemName=ms-VSCode-remote.remote-wsl) および [Japanese Language Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja) の拡張をインストール。いったん VS Code を終了する
+
+4. Windows Terminal を開き、必要なパッケージをインストールして SSL 接続ができるようにしておく
 
 ```shell
-echo 'eval "$(~/.anyenv/bin/anyenv init -)"' >> ~/.zshrc
+$ sudo apt install ca-certificates
 ```
 
-- nodenv のインストール
+5. 適当なプロジェクトをローカルに用意する
 
 ```shell
-exec $SHELL -l
-anyenv install nodenv
-exec $SHELL -l
+$ git clone https://github.com/klemiwary/Riakuto-StartingReact-ja4.0.git
 ```
 
-- 以降は「1-1. 基本環境の構築」の「Node.js をインストールする」に沿って各種プラグインをインストールする
+6. VS Code を起動し直す。左下隅に「リモートウィンドウを開きます」のアイコンが表示されているはずなのでそれをクリック
 
-## 5. Visual Studio Code のインストールと設定
+<div align="center">
+<img src="./open-remote.png" width="55%" alt="リモートウィンドウを開きます" />
+</div>
 
-参考：[Windows Subsystem for Linux で VS Code の使用を開始する](https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-VSCode)
+7. コマンドパレットに WSL で開くオプションメニューが表示されるので、「Remote-WSL: Open Folder in WSL...」を選択する
 
-### Visual Studio Code のインストール
+<div align="center">
+<img src="./remote-wsl.png" width="85%" alt="リモートウィンドウを開くオプションを選択します" />
+</div>
 
-- [公式サイトのダウンロードページ](https://code.visualstudio.com/download)から、 Visual Studio Code のインストーラをダウンロードして実行する
+8. 「ようこそ」タブペインに「WSL の使用を開始する」が表示されるので、一覧から「プロジェクトがありますか？ WSL で開きます」を選択
 
-- スタートメニューから Visual Studio Code を起動し、`File > Prefenrence > Setting Sync` から GitHub アカウントまたは Microsoft アカウントで [Setting Sync](https://code.visualstudio.com/docs/editor/settings-sync) を有効にしておく
+9. 「フォルダーを開く」が表示されるので、5 で用意したプロジェクトの中から任意のフォルダーを選択して開く
 
-```
-File > Prefenrence > Setting Sync
-```
+<div align="center">
+<img src="./open-file.png" width="75%" alt="リモートウィンドウを開くオプションを選択します" />
+</div>
 
-### WSL 上のプロジェクトを編集できるようにする
+- VS Code 拡張には、WSL 上で動作させるために WSL 側の環境にもインストールの必要があるものが多い。ローカルにインストール済みでかつ WSL 側にもインストールする必要のあるものは「WSL: Ubuntu 二インストールする️」というボタンが表示されるので、それをクリックしてインストールしておく
 
-- VS Code で [Remote - WSL 拡張](https://marketplace.visualstudio.com/items?itemName=ms-VSCode-remote.remote-wsl)をインストールする
-
-- VS Code を終了する
-
-- Windows Terminal を開き、必要なパッケージをインストールして SSL 接続ができるようにする
-
-```shell
-sudo apt-get install -y wget ca-certificates
-```
-
-- 適当なプロジェクトをローカルに用意する
-
-```shell
-git clone git@github.com:klemiwary/Riakuto-StartingReact-ja4.0.git
-```
-
-- WSL 側からプロジェクトを VS Code で開く。すると初回起動時に必要なパッケージが自動的にインストールされ、 WSL 接続のための環境が作られる
-
-```shell
-cd ./Riakuto-StartingReact-ja4.0/01-hello/02-create-project/hello-world
-code .
-```
-
-- 完了したら VS Code を終了し、もう一度スタートメニューから起動し直す。ウィンドウの左下に「Open a Remote Window」のアイコンが表示されているはずなのでそれをクリック
-
-![Open a Remote Window](./open-remote.png)
-
-- ウィンドウ中央上に WSL 上のプロジェクトを開くための入力ボックスが開くので、「Remote-WSL: Open Folder in WSL...」を選択し、先ほどの `Riakuto-StartingReact-ja4.0.git/01-hello/02-hello-world` フォルダーを開く
-
-![Open a Remote Window](./remote-wsl.png)
-
-- WSL の接続に成功すれば、左下のアイコン表示が「WSL: Ubuntu」のようになる
-
-![Open a Remote Window](./wsl-connected.png)
-
-- VS Code 拡張には WSL 上で動作させるために WSL 側の環境にインストールの必要があるものも多い。ローカルにインストール済みで WSL 側にインストールする必要のあるものは「Install in WSL: Ubuntu️」というボタンが表示されるので、それをクリックすればインストールできる
-
-![Open a Remote Window](./wsl-extensions.png)
+<div align="center">
+<img src="./wsl-extensions.png" width="75%" alt="リモートウィンドウを開くオプションを選択します" />
+</div>

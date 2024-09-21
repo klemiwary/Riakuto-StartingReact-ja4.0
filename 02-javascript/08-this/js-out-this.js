@@ -4,8 +4,8 @@ class Person {
   }
 };
 
-function greet(eos) {
-  console.log(`Hi, I'm ${this.name}${eos}`);
+function greet(postfix) {
+  console.log(`Hi, I'm ${this.name}${postfix}`);
 }
 
 const minky = new Person('Momo');
